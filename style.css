@@ -1,0 +1,103 @@
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+/*Kontener na graczy*/
+.players {
+	background-color: #488027;
+	height: 100vh;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+/*Ogólne style dla pojedynczych graczy*/
+.players__player {
+	flex-grow: 1;
+}
+
+/*Ogólny styl dla nagłówka w polu gracza*/
+.player__header {
+	height: 15vh;
+	font-size: 5vh;
+	text-align: center;
+	line-height: 15vh;
+	color: #fff;
+}
+
+/*Style szczegółowe dla nagłówków*/
+.player1__header {
+	background-color: #257F9E;
+}
+
+.player2__header {
+	background-color: #B24443;
+}
+
+/*Ogólny styl dla punktów w polu gracza*/
+.player__points {
+	height: 35vh;
+	font-size: 20vh;
+	text-align: center;
+	line-height: 35vh;
+}
+
+/*Style szczegółowe dla punktów*/
+.player1__points {
+	background-color: #3EC5F3;
+}
+.player2__points {
+	background-color: #FF615F;
+}
+
+/*Kontener na planszę do gry*/
+.container {
+	background-color: #333;
+	height: 100vh;
+	float: left;
+	flex-grow: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*Plansza do gry*/
+.container__board {
+	width: 63vh;
+	height: 63vh;
+	max-width: 63vw;
+	max-height: 63vw;
+	background-color: #fff;
+	border: 1px solid #333;
+}
+
+/*Pojedyncze pole na planszy*/
+.container__field {
+	box-sizing: border-box;
+	width: 33.33333333%;
+	height: 33.33333333%;
+	background-color: #fff;
+	border: 1px solid #333;
+	padding: 10px;
+	text-align: center;
+	float: left;
+}
+
+/*Klasy wstawiające kółko lub krzyżyk*/
+.x {
+	background: url('img/x.png') no-repeat center center;
+	background-size: contain;
+}
+
+.o {
+	background: url('img/o.png') no-repeat center center;
+	background-size: contain;
+}
+
+/*Klasa dla nazwy aktywnego gracza*/
+.active {
+	font-weight: 700;
+	text-shadow: 0 0 5px #333;
+}
