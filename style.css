@@ -65,10 +65,8 @@ body {
 
 /*Plansza do gry*/
 .container__board {
-	width: 63vh;
-	height: 63vh;
-	max-width: 63vw;
-	max-height: 63vw;
+	width: 63vmin;
+	height: 63vmin;
 	background-color: #fff;
 	border: 1px solid #333;
 }

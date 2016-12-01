@@ -62,8 +62,8 @@ function check() {
 	if (player1.active && this.className == 'container__field') {	// Kod aktywowany gdy to gracz 1 kliknął na dane pole.
 		this.setAttribute('class', 'container__field o');		// Wstawienie O w dane pole za pomocą odpowiedniej klasy.
 		player1.sum *= givePrimary(this.id);						// Pomnożenie sumy gracza razy liczbę pierwszą przypisaną do klikniętego pola.
-		globalSum += givePrimary(this.id);							// Zwiększenie sumy globalnej o liczbę pierwszą przypisaną do klikniętego pola.
-		if (checkWinner(player1.sum)) {								// Przesłanie sumy gracza do funkcji, która zwróci true, jeśli gracz wygrał.
+		globalSum++;												// Zwiększenie liczby zaznaczonych pól o 1.
+		if ((globalSum > 4) && checkWinner(player1.sum)) {								// Przesłanie sumy gracza do funkcji, która zwróci true, jeśli gracz wygrał.
 			player1.points++;												// Przyznanie 1 punktu graczowi.
 			removeClickEvents();											// Usunięcie obserwatora w celu uniemożliwienia klikania w pola przed rozpoczęciem nowej gry.
 			window.setTimeout(resetBoard, 2000);					// Pokazywanie obecnego stanu planszy przez 2 sekundy i przejście do jej resetowania.
@@ -77,8 +77,8 @@ function check() {
 	else if (player2.active && this.className == 'container__field') {		//Kod analogiczny do powyższego, ale aktywowany przy kliknięciu gracza 2.
 		this.setAttribute('class', 'container__field x');
 		player2.sum *= givePrimary(this.id);
-		globalSum += givePrimary(this.id);
-		if (checkWinner(player2.sum)) {
+		globalSum++;
+		if ((globalSum > 4) && checkWinner(player2.sum)) {
 			player2.points++;
 			removeClickEvents();
 			window.setTimeout(resetBoard, 2000);
@@ -89,7 +89,7 @@ function check() {
 		player1.active = true;
 	}
 
-	if (globalSum == 100) {							// Aktywuje się gdy wszystkie pola zostały wypełnione, ale nikt nie wygrał.
+	if (globalSum == 9) {							// Aktywuje się gdy wszystkie pola zostały wypełnione, ale nikt nie wygrał.
 		window.setTimeout(resetBoard, 2000);	// Pokazywanie obecnego stanu planszy przez 2 sekundy i przejście do jej resetowania.
 	}
 }
@@ -144,5 +144,5 @@ function resetBoard() {
 **************************************************************/
 
 
-var globalSum = 0;		// Inicjalizacja licznika sumy ze wszystkich pól.
+var globalSum = 9;		// Inicjalizacja licznika zaznaczonych pól.
 prepareFields();			// Przygotowanie planszy do gry.
